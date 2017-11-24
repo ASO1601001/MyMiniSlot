@@ -11,24 +11,32 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
         android:text="@string/had"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.173"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintBottom_creator="1"/>
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/change_coins"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
+        android:layout_marginLeft="54dp"
+        android:layout_marginRight="52dp"
+        android:layout_marginStart="54dp"
         android:text="@string/had_num"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/stop3"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="300dp"/>
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1"/>
 
     <TextView
         android:id="@+id/textView7"
@@ -49,55 +57,62 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/bet_num"
-        tools:layout_editor_absoluteX="316dp"
-        tools:layout_editor_absoluteY="308dp"/>
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/textView7"
+        android:layout_marginEnd="52dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView7"
+        android:layout_marginRight="52dp"/>
 
     <ImageView
         android:id="@+id/slot2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/question"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
         app:layout_constraintVertical_bias="0.063"
-        />
+        app:srcCompat="@drawable/question"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"/>
 
     <ImageView
         android:id="@+id/slot3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/question"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.809"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.063"/>
+        app:layout_constraintHorizontal_bias="0.809"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.063"
+        app:srcCompat="@drawable/question"/>
 
     <ImageView
         android:id="@+id/slot1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/question"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.194"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.063"/>
+        app:layout_constraintHorizontal_bias="0.194"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.063"
+        app:srcCompat="@drawable/question"/>
 
     <Button
         android:id="@+id/stop3"
-        android:layout_width="80dp"
-        android:layout_height="36dp"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
         android:layout_marginTop="19dp"
         android:text="@string/stop"
         app:layout_constraintHorizontal_bias="0.809"
@@ -107,18 +122,20 @@
 
     <Button
         android:id="@+id/stop2"
-        android:layout_width="80dp"
-        android:layout_height="36dp"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
         android:layout_marginTop="19dp"
         android:text="@string/stop"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/slot2"/>
+        app:layout_constraintTop_toBottomOf="@+id/slot2"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintLeft_creator="1"/>
 
     <Button
         android:id="@+id/stop1"
-        android:layout_width="80dp"
-        android:layout_height="36dp"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="19dp"
@@ -126,7 +143,9 @@
         app:layout_constraintHorizontal_bias="0.177"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/slot1"/>
+        app:layout_constraintTop_toBottomOf="@+id/slot1"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"/>
 
     <Button
         android:id="@+id/back_button"
@@ -136,5 +155,7 @@
         android:text="@string/back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintLeft_creator="1"/>
 </android.support.constraint.ConstraintLayout>

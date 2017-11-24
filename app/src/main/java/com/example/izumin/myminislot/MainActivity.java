@@ -12,7 +12,13 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends AppCompatActivity {
+
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
+    private static final int REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //起動時にデータをクリアする
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = pref.edit();
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = pref.edit();
         editor.clear();
         editor.commit();
 
@@ -46,21 +52,32 @@ public class MainActivity extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(MainActivity.this, GameActivity.class);
-                startActivity(intent);
+                startActivityForResult(new Intent(MainActivity.this,GameActivity.class),REQUEST_CODE);
             }
         });
 
+        Button reset = (Button)findViewById(R.id.reset_button);
+        reset.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                editor.clear();
+                editor.commit();
+                TextView hav = (TextView)findViewById(R.id.textView6);
+                int j = pref.getInt("HAD_COINS",1000);
+                String s = String.valueOf(j);
+                hav.setText(s);
+            }
+        });
     }
 
     public void editData(int num){
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = pref.edit();
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = pref.edit();
 
         int defaultHadCoins = pref.getInt("DEFAULT_HAD", 1000);
         int defaultBetCoincs = pref.getInt("DEFAULT_BET", 10);
-        int hadCoins = pref.getInt("HAD_COINS", 1000);
-        int betCoins = pref.getInt("BET_COINS", 10);
+        int hadCoins = pref.getInt("HAD_COINS", defaultHadCoins);
+        int betCoins = pref.getInt("BET_COINS", defaultBetCoincs);
 
         switch(num){
             case 1:
@@ -83,5 +100,19 @@ public class MainActivity extends AppCompatActivity {
         }
 
         editor.commit();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            //SecondActivityから戻ってきた場合
+            case (REQUEST_CODE):
+                if (resultCode == RESULT_OK) {
+                    String result = data.getStringExtra("COINS");
+                    TextView hav = (TextView)findViewById(R.id.textView6);
+                    hav.setText(result);
+                }
+                break;
+        }
     }
 }
